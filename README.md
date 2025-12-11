@@ -21,6 +21,9 @@ Dezgo.lv/
 ├── script.js           # Interactive JavaScript functionality
 ├── sitemap.xml         # XML sitemap for search engines
 ├── robots.txt          # Robots.txt for SEO
+├── vercel.json         # Vercel deployment configuration
+├── package.json        # Project metadata
+├── .gitignore          # Git ignore rules
 └── README.md           # This file
 ```
 
@@ -47,11 +50,53 @@ Dezgo.lv/
 2. Drag and drop the project folder
 3. Your site will be live instantly with custom domain support
 
-#### Option 3: Vercel (Free)
+#### Option 3: Vercel (Free) ⭐ RECOMMENDED
 
-1. Sign up at [Vercel](https://vercel.com/)
-2. Import your GitHub repository
-3. Deploy with one click
+**Quick Deploy (Easiest):**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hozols/Dezgo.lv)
+
+**Manual Deploy (Step-by-step):**
+
+1. **Sign up for Vercel**
+   - Go to [vercel.com](https://vercel.com/)
+   - Sign up with GitHub (recommended)
+
+2. **Import Your Repository**
+   - Click "Add New..." → "Project"
+   - Select your `Dezgo.lv` repository
+   - Click "Import"
+
+3. **Configure Project** (Vercel auto-detects settings)
+   - Framework Preset: Other
+   - Root Directory: `./`
+   - Build Command: (leave empty)
+   - Output Directory: (leave empty)
+   - Install Command: (leave empty)
+
+4. **Deploy**
+   - Click "Deploy"
+   - Wait 30-60 seconds
+   - Your site is live! 🎉
+
+5. **Get Your URL**
+   - You'll receive a URL like: `https://dezgo-lv.vercel.app`
+   - Or add a custom domain in Project Settings
+
+**Add Custom Domain:**
+
+1. Go to your project settings in Vercel
+2. Navigate to "Domains"
+3. Add your domain (e.g., `dezgo.lv`)
+4. Follow DNS instructions (add A record or CNAME)
+5. Vercel automatically handles SSL/HTTPS
+
+**Important: After Deployment**
+- Update `index.html`, `sitemap.xml`, and `robots.txt` with your actual domain
+- Push changes to GitHub - Vercel auto-deploys!
+
+**Automatic Updates:**
+Every time you push to your GitHub repository, Vercel automatically redeploys your site!
 
 #### Option 4: Traditional Web Hosting
 

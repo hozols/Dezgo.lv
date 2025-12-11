@@ -1,0 +1,26 @@
+{
+  "name": "dezgo-lv",
+  "version": "1.0.0",
+  "description": "Profesionāla tarakānu iznīcināšana un dezinfekcijas pakalpojumi Latvijā",
+  "keywords": [
+    "tarakānu iznīcināšana",
+    "dezinfekcija",
+    "dezinsekcija",
+    "kaitēkļu apkarošana",
+    "Latvia",
+    "Riga",
+    "pest control",
+    "cockroach extermination"
+  ],
+  "author": "Dezgo.lv",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "preview": "python -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hozols/Dezgo.lv"
+  }
+}
