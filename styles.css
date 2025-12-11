@@ -6,17 +6,27 @@
 }
 
 :root {
-    --primary-color: #d32f2f;
-    --primary-dark: #b71c1c;
-    --secondary-color: #1976d2;
-    --accent-color: #ffa000;
-    --text-dark: #212121;
-    --text-light: #757575;
-    --background-light: #fafafa;
-    --white: #ffffff;
-    --success: #388e3c;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-hover: rgba(0, 0, 0, 0.2);
+    --primary-color: #e63946;
+    --primary-dark: #d62828;
+    --primary-light: #ff5a5f;
+    --secondary-color: #457b9d;
+    --secondary-dark: #1d3557;
+    --accent-color: #f4a261;
+    --accent-light: #ffb703;
+    --text-dark: #1a1a2e;
+    --text-medium: #16213e;
+    --text-light: #6c757d;
+    --background-light: #f8f9fa;
+    --background-lighter: #ffffff;
+    --success: #06d6a0;
+    --warning: #ffd60a;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.2);
+    --gradient-primary: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+    --gradient-hero: linear-gradient(135deg, #1d3557 0%, #457b9d 50%, #e63946 100%);
+    --gradient-accent: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
 }
 
 html {
@@ -25,9 +35,12 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-dark);
     overflow-x: hidden;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -42,13 +55,15 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--white);
-    box-shadow: 0 2px 10px var(--shadow);
+    background: var(--background-lighter);
+    box-shadow: var(--shadow-sm);
     z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .navbar {
-    padding: 15px 0;
+    padding: 18px 0;
 }
 
 .nav-wrapper {
@@ -58,16 +73,22 @@ body {
 }
 
 .logo h1 {
-    font-size: 28px;
-    color: var(--primary-color);
-    font-weight: 700;
+    font-size: 32px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
     margin-bottom: 2px;
+    letter-spacing: -0.5px;
 }
 
 .logo .tagline {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-light);
-    font-weight: 400;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .nav-menu {
@@ -90,18 +111,19 @@ body {
 }
 
 .cta-button {
-    background: var(--primary-color);
-    color: var(--white) !important;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s;
+    background: var(--gradient-primary);
+    color: var(--background-lighter) !important;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.3px;
 }
 
 .cta-button:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Hamburger Menu */
@@ -126,9 +148,9 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-hero);
     margin-top: 70px;
-    padding: 80px 0;
+    padding: 100px 0;
     overflow: hidden;
 }
 
@@ -139,9 +161,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,100 Q300,50 600,100 T1200,100 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="200" cy="200" r="300" fill="rgba(255,255,255,0.03)"/><circle cx="900" cy="400" r="400" fill="rgba(255,255,255,0.02)"/><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.04)"/></svg>');
     background-size: cover;
-    opacity: 0.3;
+    opacity: 1;
+    animation: heroPattern 20s ease-in-out infinite;
+}
+
+@keyframes heroPattern {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 .hero-overlay {
@@ -150,7 +178,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-content {
@@ -163,19 +191,21 @@ body {
 }
 
 .hero-title {
-    font-size: 52px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 58px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    line-height: 1.15;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -1px;
 }
 
 .hero-subtitle {
-    font-size: 22px;
-    margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 45px;
     line-height: 1.6;
-    font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
 }
 
 .hero-buttons {
@@ -187,42 +217,65 @@ body {
 }
 
 .btn {
-    padding: 15px 35px;
-    border-radius: 30px;
+    padding: 16px 40px;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s;
+    font-weight: 700;
+    font-size: 17px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
     border: none;
     cursor: pointer;
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--gradient-primary);
+    color: var(--background-lighter);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
-    background: var(--white);
+    background: var(--background-lighter);
     color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .btn-secondary:hover {
-    background: var(--background-light);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-large {
-    padding: 18px 45px;
-    font-size: 18px;
+    padding: 20px 50px;
+    font-size: 19px;
 }
 
 .hero-features {
@@ -257,21 +310,38 @@ section {
 }
 
 .section-title {
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 48px;
+    font-weight: 800;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color: var(--text-dark);
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .section-subtitle {
-    font-size: 18px;
+    font-size: 19px;
     text-align: center;
     color: var(--text-light);
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
 }
 
 /* Problem Section */
@@ -286,33 +356,56 @@ section {
 }
 
 .problem-card {
-    background: var(--white);
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px var(--shadow);
-    transition: all 0.3s;
+    background: var(--background-lighter);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.problem-card:hover::before {
+    transform: scaleX(1);
 }
 
 .problem-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(230, 57, 70, 0.1);
 }
 
 .problem-icon {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 68px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .problem-card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 16px;
     color: var(--text-dark);
+    font-weight: 700;
 }
 
 .problem-card p {
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 15px;
 }
 
 /* Services Section */
@@ -327,35 +420,56 @@ section {
 }
 
 .service-card {
-    background: var(--white);
-    border: 2px solid #e0e0e0;
-    border-radius: 15px;
-    padding: 35px;
-    transition: all 0.3s;
+    background: var(--background-lighter);
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+    padding: 42px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover::after {
+    transform: scaleX(1);
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-hover);
-    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(230, 57, 70, 0.2);
 }
 
 .service-card.featured {
     border-color: var(--accent-color);
-    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+    background: linear-gradient(135deg, rgba(244, 162, 97, 0.08) 0%, var(--background-lighter) 100%);
+    box-shadow: var(--shadow-md);
 }
 
 .service-badge {
     position: absolute;
-    top: -15px;
-    right: 20px;
-    background: var(--accent-color);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
+    top: -16px;
+    right: 24px;
+    background: var(--gradient-accent);
+    color: var(--background-lighter);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.3px;
 }
 
 .service-icon {
@@ -390,18 +504,22 @@ section {
 .service-btn {
     display: block;
     text-align: center;
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 12px 25px;
-    border-radius: 25px;
+    background: var(--gradient-primary);
+    color: var(--background-lighter);
+    padding: 14px 30px;
+    border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
 }
 
 .service-btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Why Us Section */
@@ -416,32 +534,54 @@ section {
 }
 
 .why-card {
-    background: var(--white);
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px var(--shadow);
-    transition: all 0.3s;
+    background: var(--background-lighter);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.why-card:hover::before {
+    left: 100%;
 }
 
 .why-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(230, 57, 70, 0.15);
 }
 
 .why-icon {
-    font-size: 55px;
-    margin-bottom: 20px;
+    font-size: 62px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .why-card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 16px;
     color: var(--text-dark);
+    font-weight: 700;
 }
 
 .why-card p {
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 15px;
 }
 
 /* Process Section */
@@ -467,29 +607,47 @@ section {
 }
 
 .step-number {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: var(--white);
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    color: var(--background-lighter);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0 auto 20px;
-    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 auto 24px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.step-number::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    opacity: 0.3;
+    z-index: -1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.2; }
 }
 
 .process-step h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 22px;
+    margin-bottom: 14px;
     color: var(--text-dark);
+    font-weight: 700;
 }
 
 .process-step p {
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 15px;
 }
 
@@ -505,29 +663,50 @@ section {
 }
 
 .testimonial-card {
-    background: var(--white);
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px var(--shadow);
+    background: var(--background-lighter);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent-color);
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
 }
 
 .stars {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: var(--accent-light);
 }
 
 .testimonial-text {
     font-style: italic;
     color: var(--text-dark);
-    margin-bottom: 20px;
-    line-height: 1.7;
+    margin-bottom: 24px;
+    line-height: 1.8;
     font-size: 16px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonial-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-size: 48px;
+    color: var(--accent-color);
+    opacity: 0.3;
+    font-family: Georgia, serif;
 }
 
 .testimonial-author {
     color: var(--text-light);
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 15px;
 }
 
 /* FAQ Section */
@@ -615,11 +794,18 @@ section {
 }
 
 .contact-card {
-    background: var(--white);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow);
+    background: var(--background-lighter);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
     text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .contact-icon {
@@ -652,10 +838,11 @@ section {
 
 /* Contact Form */
 .contact-form-wrapper {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px var(--shadow);
+    background: var(--background-lighter);
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .contact-form {
@@ -704,22 +891,42 @@ section {
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: var(--white);
+    background: var(--gradient-hero);
+    color: var(--background-lighter);
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><circle cx="100" cy="100" r="200" fill="rgba(255,255,255,0.03)"/><circle cx="1100" cy="200" r="250" fill="rgba(255,255,255,0.02)"/></svg>');
+    background-size: cover;
+    opacity: 1;
 }
 
 .cta-section h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 24px;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
 }
 
 .cta-section p {
-    font-size: 20px;
-    margin-bottom: 40px;
-    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 45px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    opacity: 0.95;
 }
 
 .cta-buttons {
@@ -730,12 +937,14 @@ section {
 }
 
 .btn-cta {
-    background: var(--white);
+    background: var(--background-lighter);
     color: var(--primary-color);
 }
 
 .btn-cta:hover {
     background: var(--background-light);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
 }
 
 /* Footer */
