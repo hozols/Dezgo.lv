@@ -185,7 +185,7 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    color: var(--white);
+    color: var(--background-lighter);
     max-width: 900px;
     margin: 0 auto;
 }
@@ -410,7 +410,7 @@ section {
 
 /* Services Section */
 .services-section {
-    background: var(--white);
+    background: var(--background-lighter);
 }
 
 .services-grid {
@@ -586,7 +586,7 @@ section {
 
 /* Process Section */
 .process-section {
-    background: var(--white);
+    background: var(--background-lighter);
 }
 
 .process-timeline {
@@ -711,7 +711,7 @@ section {
 
 /* FAQ Section */
 .faq-section {
-    background: var(--white);
+    background: var(--background-lighter);
 }
 
 .faq-container {
@@ -950,7 +950,7 @@ section {
 /* Footer */
 .footer {
     background: var(--text-dark);
-    color: var(--white);
+    color: var(--background-lighter);
     padding: 60px 0 30px;
 }
 
@@ -988,7 +988,7 @@ section {
 }
 
 .footer-col a:hover {
-    color: var(--white);
+    color: var(--background-lighter);
 }
 
 .footer-bottom {
@@ -1009,23 +1009,36 @@ section {
 }
 
 .footer-links a:hover {
-    color: var(--white);
+    color: var(--background-lighter);
 }
 
 /* Responsive Design */
 @media (max-width: 968px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .logo h1 {
+        font-size: 28px;
+    }
+
+    .logo .tagline {
+        font-size: 10px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: var(--white);
+        background: var(--background-lighter);
         width: 100%;
         text-align: center;
         transition: left 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-lg);
         padding: 30px 0;
         gap: 20px;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -1036,33 +1049,297 @@ section {
         display: flex;
     }
 
+    .hero {
+        padding: 60px 0;
+        margin-top: 70px;
+    }
+
     .hero-title {
         font-size: 36px;
+        margin-bottom: 20px;
     }
 
     .hero-subtitle {
         font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .section-title {
-        font-size: 32px;
+        font-size: 34px;
+        margin-bottom: 16px;
+    }
+
+    .section-title::after {
+        width: 60px;
+    }
+
+    .section-subtitle {
+        font-size: 17px;
+        margin-bottom: 45px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .problem-grid,
+    .services-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .problem-card,
+    .service-card,
+    .why-card,
+    .testimonial-card {
+        padding: 32px;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .why-us-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .process-timeline {
         flex-direction: column;
         align-items: center;
+        gap: 40px;
+    }
+
+    .cta-section {
+        padding: 70px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
 }
 
 @media (max-width: 640px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .navbar {
+        padding: 14px 0;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .logo .tagline {
+        font-size: 9px;
+    }
+
+    .hero {
+        padding: 40px 0;
+        min-height: 85vh;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 18px;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+        margin-bottom: 35px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px 32px;
+        font-size: 16px;
+    }
+
+    .btn-large {
+        padding: 17px 40px;
+        font-size: 17px;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .feature-item {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 30px;
+        margin-bottom: 14px;
+        line-height: 1.2;
+    }
+
+    .section-title::after {
+        width: 50px;
+        height: 3px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .problem-card,
+    .why-card {
+        padding: 28px;
+    }
+
+    .problem-icon,
+    .why-icon {
+        font-size: 56px;
+        margin-bottom: 20px;
+    }
+
+    .problem-card h3,
+    .why-card h3 {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .service-card {
+        padding: 32px 24px;
+    }
+
+    .service-icon {
+        font-size: 60px;
+    }
+
+    .service-card h3 {
+        font-size: 22px;
+    }
+
+    .service-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .step-number {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .process-step h3 {
+        font-size: 20px;
+    }
+
+    .process-step p {
+        font-size: 14px;
+    }
+
+    .testimonial-card {
+        padding: 28px;
+    }
+
+    .testimonial-text::before {
+        font-size: 36px;
+    }
+
+    .faq-question h3 {
+        font-size: 16px;
+    }
+
+    .faq-question {
+        padding: 20px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+    }
+
+    .contact-card {
+        padding: 24px;
+    }
+
+    .contact-icon {
+        font-size: 36px;
+    }
+
+    .contact-card h3 {
+        font-size: 17px;
+    }
+
+    .contact-form-wrapper {
+        padding: 28px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 32px;
+        margin-bottom: 18px;
+        line-height: 1.2;
+    }
+
+    .cta-section p {
+        font-size: 17px;
+        margin-bottom: 35px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .footer {
+        padding: 45px 0 25px;
+    }
+
+    .footer-col h3,
+    .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+        font-size: 14px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 375px) {
     .hero-title {
         font-size: 28px;
     }
@@ -1071,29 +1348,24 @@ section {
         font-size: 16px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
+    .section-title {
+        font-size: 26px;
     }
 
     .btn {
-        width: 100%;
+        padding: 14px 28px;
+        font-size: 15px;
     }
 
-    .section-title {
-        font-size: 28px;
+    .problem-card,
+    .service-card,
+    .why-card,
+    .testimonial-card {
+        padding: 24px;
     }
 
     .contact-form-wrapper {
-        padding: 25px;
-    }
-
-    .cta-section h2 {
-        font-size: 28px;
-    }
-
-    .cta-section p {
-        font-size: 16px;
+        padding: 24px;
     }
 }
 
